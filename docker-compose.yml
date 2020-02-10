@@ -1,0 +1,41 @@
+#docker-compose build --force-rm && docker-compose up -d
+#docker-compose build
+#docker-compose up -d
+#docker-compose down --rmi 'local'
+
+version: "3"
+
+services:
+
+##################################
+#     Setup server container
+##################################
+
+#  server:
+#    container_name: lab-server-app2
+#    build: ./server/
+#    expose:
+#      - ${APP_SERVER_PORT}
+#    environment:
+#      APP_SERVER_PORT: ${APP_SERVER_PORT}
+#    ports:
+#      - ${APP_SERVER_PORT}:${APP_SERVER_PORT}
+
+##################################
+#     Setup web-ui container
+##################################
+
+
+  webui:
+    container_name: npm_resolver-webui-app
+    build:
+      context: .
+      args:
+        REACT_APP_SERVER_HOST: ${APP_SERVER_HOST}
+        REACT_APP_SERVER_PORT: ${APP_SERVER_PORT}
+    expose:
+      - "80"
+    ports:
+      - ${APP_CLIENT_PORT}:80
+#    depends_on:
+#      - server

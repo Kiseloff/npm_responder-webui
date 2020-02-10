@@ -1,0 +1,36 @@
+html {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #f4f6f8;
+  height: 100%;
+}
+
+/*a {*/
+/*  text-decoration: none;*/
+/*}*/
+
+#root {
+  height: 100%;
+}
+
+.bd-example {
+  position: relative;
+  padding: 1rem;
+  margin: 1rem -15px 0;
+  border: solid #f8f9fa;
+  border-width: .2rem 0 0;
+}
+
+.bd-example::after {
+  display: block;
+  clear: both;
+  content: "";
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
