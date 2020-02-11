@@ -1,6 +1,6 @@
 {
   "name": "npm_responder-webui",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": true,
   "dependencies": {
     "is-ip": "^3.1.0",

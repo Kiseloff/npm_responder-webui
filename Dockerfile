@@ -28,10 +28,3 @@ COPY --from=build /usr/src/app/build /usr/share/nginx/html
 # defined in docker-compose.yml
 #EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
-
-#########################
-### Container MGMT    ###
-#########################
-
-# docker build -t npm_resolver-webui:1.0 .
-# docker run -d --rm -ti -p 80:80 --name npm_resolver-webui-app npm_resolver-webui:1.0

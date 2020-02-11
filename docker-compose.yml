@@ -19,6 +19,8 @@ services:
       NPM_RESOLVER_API_SSH_SECRET: ${APP_API_SSH_SECRET}
       NPM_RESOLVER_API_COMMUNITY: ${APP_API_COMMUNITY}
       NPM_RESOLVER_API_PORT: ${APP_API_PORT}
+    volumes:
+      - ~/npm_responder_logs:/usr/src/app/logs
     ports:
       - ${APP_API_PORT}:${APP_API_PORT}
 
@@ -34,6 +36,8 @@ services:
     environment:
       APP_API_HOST: api
       APP_API_PORT: ${APP_API_PORT}
+    volumes:
+      - ~/npm_responder_logs:/usr/src/app/logs
     ports:
       - ${APP_TELNETSRV_PORT}:${APP_TELNETSRV_PORT}
     depends_on:
