@@ -9,8 +9,8 @@ services:
   ##################################
 
   api:
-    container_name: npm_resolver-api-app
-    image: "kiseloff/npm_responder-api:latest"
+    container_name: npm_responder-api-app
+    image: kiseloff/npm_responder-api:latest
     expose:
       - ${APP_API_PORT}
     environment:
@@ -27,8 +27,8 @@ services:
   ##################################
 
   telnetsrv:
-    container_name: npm_resolver-telnetsrv-app
-    image: "kiseloff/npm_responder-telnetsrv:latest"
+    container_name: npm_responder-telnetsrv-app
+    image: kiseloff/npm_responder-telnetsrv:latest
     expose:
       - ${APP_TELNETSRV_PORT}
     environment:
@@ -45,12 +45,13 @@ services:
 
 
   webui:
-    container_name: npm_resolver-webui-app
+    container_name: npm_responder-webui-app
     build:
       context: .
       args:
-        REACT_APP_SERVER_HOST: api
+        REACT_APP_SERVER_HOST: ${APP_API_EXTERNAL_IP}
         REACT_APP_SERVER_PORT: ${APP_API_PORT}
+    image: kiseloff/npm_responder-webui:latest
     expose:
       - "80"
     ports:
