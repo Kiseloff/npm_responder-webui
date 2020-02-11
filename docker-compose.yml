@@ -48,6 +48,7 @@ services:
     container_name: npm_responder-webui-app
     build:
       context: .
+      image: kiseloff/npm_responder-webui:latest
       args:
         REACT_APP_SERVER_HOST: ${APP_API_EXTERNAL_IP}
         REACT_APP_SERVER_PORT: ${APP_API_PORT}
