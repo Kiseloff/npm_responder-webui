@@ -4,5 +4,11 @@ React application for NPM_resolver API
 
 #### Install application
 
-    1. Edit file ".env"
-    2. docker-compose -p npmresponder up -d
+    git clone https://github.com/Kiseloff/npm_responder-webui.git
+    cd ./npm_responder-webui/
+    
+    #Edit file ".env"
+
+    docker-compose -p npmresponder up -d
+
+    rm -rf ../npm_responder-webui/
