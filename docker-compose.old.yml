@@ -1,6 +1,6 @@
 #docker-compose -p npmresponder up -d
 
-version: "3.3"
+version: "3"
 
 services:
 
@@ -23,8 +23,6 @@ services:
       - ~/npm_responder_logs:/usr/src/app/logs
     ports:
       - ${APP_API_PORT}:${APP_API_PORT}
-    networks:
-      - net
 
   ##################################
   #     Setup telnetsrv container
@@ -38,13 +36,10 @@ services:
     environment:
       APP_API_HOST: api
       APP_API_PORT: ${APP_API_PORT}
-      APP_TELNETSRV_PORT: ${APP_TELNETSRV_PORT}
     volumes:
       - ~/npm_responder_logs:/usr/src/app/logs
     ports:
       - ${APP_TELNETSRV_PORT}:${APP_TELNETSRV_PORT}
-    networks:
-      - net
     depends_on:
       - api
 
@@ -65,12 +60,5 @@ services:
       - "80"
     ports:
       - ${APP_WEBUI_PORT}:80
-    networks:
-      - net
     depends_on:
       - api
-
-networks:
-  net:
-    driver: overlay
-    attachable: true
