@@ -13,6 +13,7 @@ services:
     image: kiseloff/npm_responder-api:latest
     expose:
       - ${APP_API_PORT}
+    restart: always
     environment:
       NPM_RESOLVER_API_USERNAME: ${APP_API_USERNAME}
       NPM_RESOLVER_API_SNMPv3_SECRET: ${APP_API_SNMPv3_SECRET}
@@ -35,6 +36,7 @@ services:
     image: kiseloff/npm_responder-telnetsrv:latest
     expose:
       - ${APP_TELNETSRV_PORT}
+    restart: always
     environment:
       APP_API_HOST: api
       APP_API_PORT: ${APP_API_PORT}
@@ -63,6 +65,7 @@ services:
     image: kiseloff/npm_responder-webui:latest
     expose:
       - "80"
+    restart: always
     ports:
       - ${APP_WEBUI_PORT}:80
     networks:
